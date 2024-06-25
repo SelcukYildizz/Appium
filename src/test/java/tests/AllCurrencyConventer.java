@@ -38,27 +38,41 @@ public class AllCurrencyConventer {
 
 // cevirmek istedigimiz para birimi zloty olarak secilir
 
+        //page.firstCurrencyDropDown.click();
+        //ReusableMethods.dropDownKaydırma("PLN");
+        //ReusableMethods.wait(2);
+
+        // 2. Yontem
+
         page.firstCurrencyDropDown.click();
-        ReusableMethods.dropDownKaydırma("PLN");
-        ReusableMethods.wait(2);
+        ReusableMethods.scrollWithUiScrollableAndClick("PLN");
 
 
 
 
 // cevirelecek olan para birimi Tl olarak secilir
 
-        ReusableMethods.dropDownKaydırma("TRY");
-        ReusableMethods.wait(2);
+        page.secondCurrencyDropDown.click();
+        ReusableMethods.scrollWithUiScrollableAndClick("TRY");
 
 
-// cevrilen tutar screenShot olarak kaydedilir
+// 100 PLN girilir
 
         page.digitOne.click();
-        page.digitZero.click();
-        page.digitZero.click();
+        for (int i = 0; i < 2; i++) {
+             page.digitZero.click();
+        }
 
-  ReusableMethods.getScreenshot("PLN-TRY");
+        // Ekran goruntusu al.
 
+        //1. Yöntem, basit olan.
+
+        //File screenshot = driver.getScreenshotAs(OutputType.FILE);
+        //FileUtils.copyFile(screenshot,new File("screenshot.jpg"));
+
+        //2. Yontem, methodlaşmış olan
+
+        ReusableMethods.getScreenshot("Selcuk");
 
 // Ardindan zloty nin tl karsiligi olan tl degeri kaydedilir
 
